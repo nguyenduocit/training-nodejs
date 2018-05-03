@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>
+
+    </h1>
+    <p>Welcome to
+
+    </p>
+    <p> Hien thi noi dung o day
+        <%= JSON.stringify(data) %>
+    </p>
+
+    <% data.data.forEach( function(value) { %>
+        <%= value %>
+            <% }); %>
+</body>
+
+</html>
