@@ -1,11 +1,13 @@
 var mongoose = require('mongoose');
+// require modul mã hóa password
+var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
 var memberSchema = new Schema({
 
     info : {
-        firstName: String,
-        lastName: String,
+        firstname: String,
+        lastname: String,
         phone: String,
         company: String,
         address:String,
@@ -18,7 +20,7 @@ var memberSchema = new Schema({
             ref: 'Country'
         }],// store array country_id
     },
-    loacl: { // usẻ local
+    local: { // usẻ local
         email:String,
         password:String,
         adminPin:String,
@@ -44,7 +46,17 @@ var memberSchema = new Schema({
     newsletter:Boolean,
     roles:String, //admin ,mod, member, vip 
     status: String, // active , inactive, suspended
+}, {
+    timestamps: true
 });
+// mã hóa mật khẩu 
+memberSchema.methods.encryptPassword = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
+}
 
+//giải mã mật khẩu
+memberSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
+}
 
 module.exports = mongoose.model('Member', memberSchema);

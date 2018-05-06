@@ -2,7 +2,7 @@
     <li class="nav-item">
         <a href="#" class="nav-link active">{{__ 'Active'}}</a>
     </li>
-    
+
     <li class="nav-item">
         <a href="#" class="nav-link">Another link</a>
     </li>
@@ -13,21 +13,22 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{__ 'Account'}}</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="#">{{__ 'Login'}}</a>
-            <a class="dropdown-item" href="#">{{__ 'Register'}}</a>
-            <div class="dropdown-divider">{{__ 'Profile'}}</div>
+            <a class="dropdown-item" href="/thanh-vien/dang-ky">{{__ 'Register'}}</a>
+            <a class="dropdown-item" href="/thanh-vien/tai-khoan">
+                {{__ 'Profile'}}
+            </a>
             <a class="dropdown-item" href="#">{{__ 'Logout'}}</a>
         </div>
     </li>
 
     <li class="nav-item dropdown">
-        <a   class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <img src="/images/{{clanguage}}.png" width="50">{{@root.__ clanguage}}
         </a>
         <div class="dropdown-menu">
             {{#each languages}}
             <a class="dropdown-item" onclick="window.location.href='/{{this}}'" href="#">
-                <img src="/images/{{this}}.png" width="50">
-                {{@root.__ this}}</a>
+                <img src="/images/{{this}}.png" width="50"> {{@root.__ this}}</a>
             {{/each}}
         </div>
     </li>

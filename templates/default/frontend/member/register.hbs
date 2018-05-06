@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="col-sm-6 col-sm-offset-3">
+
+        {{#if hasErrors}}
+        <div class="row">
+            <div class="alert alert-danger">
+                {{#each messages}}
+                <p>{{this}}</p>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+
+        <form action="/thanh-vien/dang-ky" method="POST" role="form">
+            <legend>Form title</legend>
+
+            <div class="form-group">
+                <label for="">{{__ 'Member Register'}}</label>
+                <a href="/thanh-vien/dang-ky">
+                    <span class="pull-right">{{__ 'I already have an account'}}</span>
+                </a>
+
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="firstname">{{__ 'First Name'}}</label>
+                        <input type="text" name="firstname" id="firstname" class="form-control" placeholder="{{__ 'Please input first name'}}">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lastname">{{__ 'Last Name'}}</label>
+                        <input type="text" name="lastname" id="lastname" class="form-control" placeholder="{{__ 'Please input last name'}}">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">{{__ 'Email Address'}}</label>
+                <input type="text" name="email" id="email" class="form-control" placeholder="{{__ 'Please input email'}}">
+            </div>
+            <div class="form-group">
+                <label for="password">{{__ 'Password'}}</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="{{__ 'Please input password'}}">
+            </div>
+
+            <div class="form-group">
+                <label for="rpassword">{{__ 'Confirm Password'}}</label>
+                <input type="password" name="rpassword" id="rpassword" class="form-control" placeholder="{{__ 'Please input password'}}">
+            </div>
+
+            <div class="form-group">
+                <legend>{{__ 'Newsletter Register'}}</legend>
+            </div>
+
+            <div class="form-group">
+                <label for="newsletter">{{__ 'Do you want to subscribe to our promotional emails?'}}</label>
+                <br>
+                <input type="radio" name="newsletter" id="newsletter" class="form-control" value="1" checked /> {{__ 'Yes'}}
+                <input type="radio" name="newsletter" id="newsletter" class="form-control" value="0" /> {{__ 'No'}}
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label for="" class="pull-left">
+                        <input type="checkbox" name="accept" id="accept" value="1"/> {{__ 'I have read and agree to the Terms'}}
+                    </label>
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <button type="submit" class="btn btn-primary">{{__ 'Register'}}</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
